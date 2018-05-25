@@ -15,6 +15,7 @@ class TodoList extends Component {
 
     return (
       <div className="TodoList">
+        <h3>{this.props.todolist.name}</h3>
         {todos}
       </div>
     );

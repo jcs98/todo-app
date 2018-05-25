@@ -4,7 +4,7 @@ import './App.css';
 
 class App extends Component {
 
-  constructor(){
+  constructor() {
     super();
     this.state = {
       todolist: {}
@@ -12,36 +12,69 @@ class App extends Component {
   }
 
   //load data when component will mount
-  componentWillMount(){
+  componentWillMount() {
     this.setState({
-      todolist: {
-        name:"list1",
-        todos:[
-          {
-            title:"todo1",
-            desc:"This is the first todo",
-            pending: true
-          },
-          {
-            title:"todo2",
-            desc:"This is the second todo",
-            pending: false
-          },
-          {
-            title:"todo3",
-            desc:"This is the third todo",
-            pending: true
-          },
-        ]
-      }
+      todolists: [
+        {
+          name: "list1",
+          todos: [
+            {
+              title: "todo1.1",
+              desc: "This is the first todo",
+              pending: true
+            },
+            {
+              title: "todo2.1",
+              desc: "This is the second todo",
+              pending: false
+            },
+            {
+              title: "todo3.1",
+              desc: "This is the third todo",
+              pending: true
+            },
+          ]
+        },
+        {
+          name: "list2",
+          todos: [
+            {
+              title: "todo1.2",
+              desc: "This is the first todo",
+              pending: true
+            },
+            {
+              title: "todo2.2",
+              desc: "This is the second todo",
+              pending: false
+            },
+            {
+              title: "todo3.2",
+              desc: "This is the third todo",
+              pending: true
+            },
+          ]
+        }
+      ]
     });
   }
 
   render() {
+
+    let todolists;
+    if(this.state.todolists) {
+      todolists = this.state.todolists.map(todolist => {
+        //console.log(todolist);
+        return (
+          <TodoList key={todolist.name} todolist={todolist} />
+        );
+      });
+    }
+
     return (
       <div className="App">
-        My App
-        <TodoList todolist={this.state.todolist}/>
+        <h1>ToDo App</h1>
+        {todolists}
       </div>
     );
   }
