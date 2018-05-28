@@ -78,6 +78,13 @@ class App extends Component {
     this.setState({todolists:todolists});
   }
 
+  handleDeleteList(name){
+    let todolists = this.state.todolists;
+    let index = todolists.findIndex(x => x.name === name);
+    todolists.splice(index, 1);
+    this.setState({todolists:todolists});
+  }
+
   render() {
 
     let todolists;
@@ -85,7 +92,7 @@ class App extends Component {
       todolists = this.state.todolists.map(todolist => {
         //console.log(todolist);
         return (
-          <TodoList key={todolist.name} todolist={todolist} updateList={this.handleUpdateToList.bind(this)} />
+          <TodoList key={todolist.name} todolist={todolist} updateList={this.handleUpdateToList.bind(this)} deleteList={this.handleDeleteList.bind(this)}/>
         );
       });
     }

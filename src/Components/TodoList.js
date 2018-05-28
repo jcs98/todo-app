@@ -33,6 +33,10 @@ class TodoList extends Component {
     this.props.updateList(this.props.todolist.name, todos);
   }
 
+  deleteList(name) {
+    this.props.deleteList(name);
+  }
+
   render() {
     let todos;
     if (this.props.todolist.todos) {
@@ -49,7 +53,13 @@ class TodoList extends Component {
 
     return (
       <div className="TodoList">
-        <h3>{this.props.todolist.name}</h3>
+        <h3>
+          {this.props.todolist.name + "   "}
+          <a href="#" onClick={this.deleteList.bind(this, this.props.todolist.name)}>
+            <font color="red">x</font>
+          </a>
+        </h3>
+
         <AddTodo addTodo={this.handleAddTodo.bind(this)}/>
         {todos}
         <hr/>
