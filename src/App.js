@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TodoList from './Components/TodoList';
 import './App.css';
+import AddList from './Components/AddList';
 
 class App extends Component {
 
@@ -59,6 +60,13 @@ class App extends Component {
     });
   }
 
+  handleAddList(list){
+    // console.log(list);
+    let lists = this.state.todolists;
+    lists.push(list);
+    this.setState({todolists:lists});
+  }
+
   handleUpdateToList(name, todos){
     console.log(name, todos);
     let todolists = this.state.todolists;
@@ -85,6 +93,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>ToDo App</h1>
+        <AddList addList={this.handleAddList.bind(this)}/>
         <hr/>
         {todolists}
       </div>

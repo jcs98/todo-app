@@ -31,7 +31,7 @@ class AddTodo extends Component {
 
     return (
       <div>
-        <h4>New Todo: </h4>
+        <h4>Add Todo: </h4>
         <form onSubmit={this.handleSubmit.bind(this)}>
           <div>
             <label>Title:</label>
