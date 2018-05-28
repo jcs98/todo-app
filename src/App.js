@@ -59,6 +59,17 @@ class App extends Component {
     });
   }
 
+  handleUpdateToList(name, todos){
+    console.log(name, todos);
+    let todolists = this.state.todolists;
+    todolists.forEach(todolist => {
+      if(todolist.name === name){
+        todolist.todos = todos;
+      }
+    });
+    this.setState({todolists:todolists});
+  }
+
   render() {
 
     let todolists;
@@ -66,7 +77,7 @@ class App extends Component {
       todolists = this.state.todolists.map(todolist => {
         //console.log(todolist);
         return (
-          <TodoList key={todolist.name} todolist={todolist} />
+          <TodoList key={todolist.name} todolist={todolist} updateList={this.handleUpdateToList.bind(this)} />
         );
       });
     }
@@ -74,6 +85,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>ToDo App</h1>
+        <hr/>
         {todolists}
       </div>
     );
