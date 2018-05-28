@@ -19,13 +19,30 @@ class TodoList extends Component {
     this.props.updateList(this.props.todolist.name, todos);
   }
 
+  handleToggleTodo(title){
+    // console.log(todo);
+    let todos = this.props.todolist.todos;
+    todos.forEach(todo => {
+      if(todo.title === title){
+        if(todo.pending)
+          todo.pending = false;
+        else
+          todo.pending = true;
+      }
+    });
+    this.props.updateList(this.props.todolist.name, todos);
+  }
+
   render() {
     let todos;
     if (this.props.todolist.todos) {
       todos = this.props.todolist.todos.map(todo => {
         //console.log(todo);
+        let checked = "";
+        if(!todo.pending)
+          checked = "checked";
         return (
-          <Todo key={todo.title} todo={todo} deleteTodo={this.handleDeleteTodo.bind(this)}/>
+          <Todo key={todo.title} todo={todo} deleteTodo={this.handleDeleteTodo.bind(this)} toggleTodo={this.handleToggleTodo.bind(this)} checked={checked}/>
         );
       });
     }
