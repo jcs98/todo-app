@@ -11,13 +11,21 @@ class TodoList extends Component {
     this.props.updateList(this.props.todolist.name, todos);
   }
 
+  handleDeleteTodo(title){
+    // console.log(todo);
+    let todos = this.props.todolist.todos;
+    let index = todos.findIndex(x => x.title === title);
+    todos.splice(index, 1);
+    this.props.updateList(this.props.todolist.name, todos);
+  }
+
   render() {
     let todos;
     if (this.props.todolist.todos) {
       todos = this.props.todolist.todos.map(todo => {
         //console.log(todo);
         return (
-          <Todo key={todo.title} todo={todo} />
+          <Todo key={todo.title} todo={todo} deleteTodo={this.handleDeleteTodo.bind(this)}/>
         );
       });
     }
