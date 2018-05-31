@@ -54,10 +54,8 @@ class TodoList extends Component {
     return (
       <div className="TodoList">
         <h3>
-          {this.props.todolist.name + "   "}
-          <a href="#" onClick={this.deleteList.bind(this, this.props.todolist.name)}>
-            <font color="red">x</font>
-          </a>
+          {this.props.todolist.name + "     "}
+          <a href="#" onClick={this.deleteList.bind(this, this.props.todolist.name)} style={{color:'red', textDecoration: 'none'}}>x</a>
         </h3>
 
         <AddTodo addTodo={this.handleAddTodo.bind(this)}/>
