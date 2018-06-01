@@ -3,9 +3,10 @@ import TodoList from './components/TodoList';
 import AddList from './components/AddList';
 
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
 
 import './App.css';
+
+import store from './store';
 
 class App extends Component {
 
@@ -44,17 +45,17 @@ class App extends Component {
           name: "list2",
           todos: [
             {
-              id: 0,
+              id: 3,
               title: "todo1.2",              
               completed: true
             },
             {
-              id: 1,
+              id: 4,
               title: "todo2.2",
               completed: false
             },
             {
-              id: 2,
+              id: 5,
               title: "todo3.2",              
               completed: true
             },
@@ -102,12 +103,14 @@ class App extends Component {
     }
 
     return (
-      <div className="App">
-        <h1>ToDo App</h1>
-        <AddList addList={this.handleAddList.bind(this)}/>
-        <hr/>
-        {todolists}
-      </div>
+      <Provider store={store}>
+        <div className="App">
+          <h1>ToDo App</h1>
+          <AddList addList={this.handleAddList.bind(this)}/>
+          <hr/>
+          {todolists}
+        </div>
+      </Provider>
     );
   }
 }
