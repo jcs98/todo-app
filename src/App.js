@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
-import TodoList from './Components/TodoList';
+import TodoList from './components/TodoList';
+import AddList from './components/AddList';
+
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+
 import './App.css';
-import AddList from './Components/AddList';
 
 class App extends Component {
 
