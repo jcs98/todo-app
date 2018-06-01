@@ -23,6 +23,7 @@ class AddList extends Component {
         this.props.addList(this.state.newList);
       });
     }
+    this.refs.name.value = '';
     e.preventDefault();
   }
 
@@ -32,11 +33,9 @@ class AddList extends Component {
       <div>
         <h4>Add List: </h4>
         <form onSubmit={this.handleSubmit.bind(this)}>
-          <div>
-            <label>Name:</label>
-            <input type="text" ref="name" />
-          </div>
-          <input type="submit" value="Add" />
+          <label>Name:  </label>
+          <input type="text" ref="name" />
+          <input type="submit" value="+" />
         </form>
         <br />
       </div>

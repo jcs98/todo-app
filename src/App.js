@@ -20,19 +20,19 @@ class App extends Component {
           name: "list1",
           todos: [
             {
-              title: "todo1.1",
-              desc: "This is the first todo",
-              pending: true
+              id: 0,
+              title: "todo1.1",              
+              completed: true
             },
             {
+              id: 1,
               title: "todo2.1",
-              desc: "This is the second todo",
-              pending: false
+              completed: false
             },
             {
-              title: "todo3.1",
-              desc: "This is the third todo",
-              pending: true
+              id: 2,
+              title: "todo3.1",              
+              completed: true
             },
           ]
         },
@@ -40,19 +40,19 @@ class App extends Component {
           name: "list2",
           todos: [
             {
-              title: "todo1.2",
-              desc: "This is the first todo",
-              pending: true
+              id: 0,
+              title: "todo1.2",              
+              completed: true
             },
             {
+              id: 1,
               title: "todo2.2",
-              desc: "This is the second todo",
-              pending: false
+              completed: false
             },
             {
-              title: "todo3.2",
-              desc: "This is the third todo",
-              pending: true
+              id: 2,
+              title: "todo3.2",              
+              completed: true
             },
           ]
         }

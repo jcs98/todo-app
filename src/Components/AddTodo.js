@@ -16,14 +16,14 @@ class AddTodo extends Component {
       this.setState({
         newTodo: {
           title: this.refs.title.value,
-          desc: this.refs.desc.value,
-          pending: true
+          completed: false
         }
       }, function () {
         //console.log(this.state);
         this.props.addTodo(this.state.newTodo);
       });
     }
+    this.refs.title.value = '';
     e.preventDefault();
   }
 
@@ -33,15 +33,9 @@ class AddTodo extends Component {
       <div>
         <h4>Add Todo: </h4>
         <form onSubmit={this.handleSubmit.bind(this)}>
-          <div>
-            <label>Title:</label>
-            <input type="text" ref="title" />
-          </div>
-          <div>
-            <label>Description:</label>
-            <input type="text" ref="desc" />
-          </div>
-          <input type="submit" value="Add" />
+          <label>Title: </label>
+          <input type="text" ref="title" />
+          <input type="submit" value="+" />
         </form>
         <br />
       </div>

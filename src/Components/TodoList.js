@@ -24,10 +24,10 @@ class TodoList extends Component {
     let todos = this.props.todolist.todos;
     todos.forEach(todo => {
       if(todo.title === title){
-        if(todo.pending)
-          todo.pending = false;
+        if(todo.completed)
+          todo.completed = false;
         else
-          todo.pending = true;
+          todo.completed = true;
       }
     });
     this.props.updateList(this.props.todolist.name, todos);
@@ -43,7 +43,7 @@ class TodoList extends Component {
       todos = this.props.todolist.todos.map(todo => {
         //console.log(todo);
         let checked = "";
-        if(!todo.pending)
+        if(todo.completed)
           checked = "checked";
         return (
           <Todo key={todo.title} todo={todo} deleteTodo={this.handleDeleteTodo.bind(this)} toggleTodo={this.handleToggleTodo.bind(this)} checked={checked}/>
