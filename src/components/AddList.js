@@ -11,7 +11,10 @@ class AddList extends Component {
         <form onSubmit={
           e => {
             e.preventDefault()
-            this.props.addTodolist(this.refs.name.value)
+            if(!this.refs.name.value)
+              alert("List Name is required!")
+            else
+              this.props.addTodolist(this.refs.name.value)
             this.refs.name.value = ''
           }
         }>
