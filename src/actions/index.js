@@ -9,7 +9,7 @@ export const addTodo = (title, listName) => ({
 
 export const toggleTodo = (id, listName) => ({
   type: 'TOGGLE_TODO',
-  id: nextTodoId++,
+  id: id,
   name: listName
 })
 

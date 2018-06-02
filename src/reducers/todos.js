@@ -15,7 +15,7 @@ const todos = (state = [], action) => {
           : todolist
       );
     case 'TOGGLE_TODO':
-      console.log("toggling");
+      console.log("toggling", action.name, action.id);
       return state.map(todolist =>
         (todolist.name === action.name)
           ? {

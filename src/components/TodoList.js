@@ -12,7 +12,7 @@ class TodoList extends Component {
     if (this.props.todolist.todos) {
       todos = this.props.todolist.todos.map(todo => {
         return (
-          <Todo key={todo.id} todo={todo} onClick={()=>toggleTodo(todo.id)}/>
+          <Todo key={todo.id} todo={todo} toggleTodo={()=>this.props.toggleTodo(todo.id, this.props.todolist.name)}/>
         );
       });
     }
