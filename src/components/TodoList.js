@@ -24,7 +24,7 @@ class TodoList extends Component {
           <a href="#" style={{color:'red', textDecoration: 'none'}}>x</a>
         </h3>
 
-        <AddTodo />
+        <AddTodo addTodo={(title)=>this.props.addTodo(title, this.props.todolist.name)}/>
         {todos}
         <hr/>
       </div>

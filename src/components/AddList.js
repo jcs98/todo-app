@@ -7,7 +7,6 @@ class AddList extends Component {
 
     return (
       <div>
-        <h4>Add List: </h4>
         <form onSubmit={
           e => {
             e.preventDefault()
@@ -18,8 +17,7 @@ class AddList extends Component {
             this.refs.name.value = ''
           }
         }>
-          <label>Name:  </label>
-          <input type="text" ref="name" />
+          <input type="text" ref="name" placeholder="New List: Eg. My Awesome List" size="22"/>
           <input type="submit" value="+" />
         </form>
         <br />

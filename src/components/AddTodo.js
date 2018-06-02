@@ -7,10 +7,17 @@ class AddTodo extends Component {
 
     return (
       <div>
-        <h4>Add Todo: </h4>
-        <form >
-          <label>Title: </label>
-          <input type="text" ref="title" />
+        <form onSubmit={
+          e => {
+            e.preventDefault()
+            if (!this.refs.title.value)
+              alert("Todo title is required!")
+            else
+              this.props.addTodo(this.refs.title.value)
+            this.refs.title.value = ''
+          }
+        }>
+          <input type="text" ref="title" placeholder="Add ToDo: Eg. Feed the cat"/>
           <input type="submit" value="+" />
         </form>
         <br />
