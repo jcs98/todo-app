@@ -15,6 +15,7 @@ const todos = (state = [], action) => {
           : todolist
       );
     case 'TOGGLE_TODO':
+      console.log("toggling");
       return state.map(todolist =>
         (todolist.name === action.name)
           ? {
@@ -27,6 +28,18 @@ const todos = (state = [], action) => {
           : todolist
       );
     case 'ADD_TODOLIST':
+
+      console.log(action.name);
+      console.log(state);
+
+      console.log([
+        ...state,
+        {
+          name: action.name,
+          todos: []
+        }
+      ]);
+
       return [
         ...state,
         {
@@ -38,3 +51,5 @@ const todos = (state = [], action) => {
       return state;
   }
 }
+
+export default todos

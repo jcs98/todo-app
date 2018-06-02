@@ -1,38 +1,20 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class AddList extends Component {
-
-  constructor() {
-    super();
-    this.state = {
-      newList: {}
-    }
-  }
-
-  handleSubmit(e) {
-    if (!this.refs.name.value) {
-      alert("Name is required");
-    } else {
-      this.setState({
-        newList: {
-          name: this.refs.name.value,
-          todos: []
-        }
-      }, function () {
-        //console.log(this.state);
-        this.props.addList(this.state.newList);
-      });
-    }
-    this.refs.name.value = '';
-    e.preventDefault();
-  }
 
   render() {
 
     return (
       <div>
         <h4>Add List: </h4>
-        <form onSubmit={this.handleSubmit.bind(this)}>
+        <form onSubmit={
+          e => {
+            e.preventDefault()
+            this.props.addTodolist(this.refs.name.value)
+            this.refs.name.value = ''
+          }
+        }>
           <label>Name:  </label>
           <input type="text" ref="name" />
           <input type="submit" value="+" />
@@ -43,4 +25,4 @@ class AddList extends Component {
   }
 }
 
-export default AddList;
+export default connect()(AddList);
