@@ -10,7 +10,6 @@ export default class TodoFilter extends Component {
         <input type="radio" name="filter" value="PENDING" />Pending
         <input type="radio" name="filter" value="COMPLETED" />Completed
         </form>
-        <h1 id="test"></h1>
       </div>
     )
   }

@@ -31,7 +31,7 @@ const todos = (state = [], action) => {
         (todolist.name === action.name)
           ? {
             ...todolist,
-            todos: todolist.todos.filter(todo => todo.id != action.id)
+            todos: todolist.todos.filter(todo => todo.id !== action.id)
           }
           : todolist
       );
