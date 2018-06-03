@@ -7,6 +7,12 @@ export const addTodo = (title, listName) => ({
   name: listName
 })
 
+export const deleteTodo = (id, listName) => ({
+  type: 'DELETE_TODO',
+  id: id,
+  name: listName
+})
+
 export const toggleTodo = (id, listName) => ({
   type: 'TOGGLE_TODO',
   id: id,

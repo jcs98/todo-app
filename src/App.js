@@ -3,7 +3,7 @@ import TodoList from './components/TodoList';
 import AddList from './components/AddList';
 
 import { connect } from 'react-redux';
-import { addTodolist, deleteTodolist, toggleTodo, addTodo } from './actions'
+import { addTodolist, deleteTodolist, toggleTodo, addTodo, deleteTodo } from './actions'
 
 import './App.css';
 
@@ -18,7 +18,8 @@ class App extends Component {
         return (
           <TodoList 
           key={todolist.name} todolist={todolist} 
-          toggleTodo={this.props.toggleTodo} addTodo={this.props.addTodo}
+          toggleTodo={this.props.toggleTodo} 
+          addTodo={this.props.addTodo} deleteTodo = {this.props.deleteTodo}
           deleteTodolist={this.props.deleteTodolist}/>
         );
       });
@@ -43,7 +44,8 @@ const mapDispatchToProps = dispatch => ({
   addTodolist: name => dispatch(addTodolist(name)),
   deleteTodolist: name => dispatch(deleteTodolist(name)),
   toggleTodo: (id, listName) => dispatch(toggleTodo(id, listName)),
-  addTodo: (title, listName) => dispatch(addTodo(title, listName))
+  addTodo: (title, listName) => dispatch(addTodo(title, listName)),
+  deleteTodo: (id, listName) => dispatch(deleteTodo(id, listName))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

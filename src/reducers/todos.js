@@ -26,6 +26,15 @@ const todos = (state = [], action) => {
           }
           : todolist
       );
+    case 'DELETE_TODO':
+      return state.map(todolist =>
+        (todolist.name === action.name)
+          ? {
+            ...todolist, 
+            todos: todolist.todos.filter(todo => todo.id != action.id)
+          }
+          : todolist
+      );
     case 'ADD_TODOLIST':
       return [
         ...state,

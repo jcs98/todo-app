@@ -8,7 +8,7 @@ class Todo extends Component {
       <li className="Todo">
         <input type="checkbox" onChange={this.props.toggleTodo} checked={this.props.todo.completed} />
         <span onClick={this.props.toggleTodo} style={{textDecoration: this.props.todo.completed ? 'line-through' : 'none'}}>{this.props.todo.title + '      '}</span> 
-        <a href="#" style={{color:'red', textDecoration: 'none'}}>x</a>
+        <a href="#" onClick={this.props.deleteTodo} style={{color:'red', textDecoration: 'none'}}>x</a>
       </li>
     );
   }
