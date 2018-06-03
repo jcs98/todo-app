@@ -30,7 +30,7 @@ const todos = (state = [], action) => {
       return state.map(todolist =>
         (todolist.name === action.name)
           ? {
-            ...todolist, 
+            ...todolist,
             todos: todolist.todos.filter(todo => todo.id != action.id)
           }
           : todolist

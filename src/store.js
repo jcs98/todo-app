@@ -45,7 +45,8 @@ const initialState = {
         },
       ]
     }
-  ]
+  ],
+  currentFilter: "ALL"
 };
 
 const store = createStore(app, initialState, composeWithDevTools());

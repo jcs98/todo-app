@@ -28,3 +28,8 @@ export const deleteTodolist = (name) => ({
   type: 'DELETE_TODOLIST',
   name,
 })
+
+export const filterTodos = (currentFilter) => ({
+  type: 'FILTER_TODOS',
+  currentFilter,
+})

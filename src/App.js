@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import TodoList from './components/TodoList';
 import AddList from './components/AddList';
+import TodoFilter from './components/TodoFilter';
 
 import { connect } from 'react-redux';
-import { addTodolist, deleteTodolist, toggleTodo, addTodo, deleteTodo } from './actions'
+import { addTodolist, deleteTodolist, toggleTodo, addTodo, deleteTodo, filterTodos } from './actions'
 
 import './App.css';
 
@@ -20,7 +21,8 @@ class App extends Component {
           key={todolist.name} todolist={todolist} 
           toggleTodo={this.props.toggleTodo} 
           addTodo={this.props.addTodo} deleteTodo = {this.props.deleteTodo}
-          deleteTodolist={this.props.deleteTodolist}/>
+          deleteTodolist={this.props.deleteTodolist}
+          currentFilter={this.props.currentFilter}/>
         );
       });
     }
@@ -30,6 +32,8 @@ class App extends Component {
           <h1>ToDo App</h1>
           <AddList addTodolist={this.props.addTodolist}/>
           <hr/>
+          <TodoFilter filterTodos={this.props.filterTodos}/>
+          <hr/>
           {todolists}
         </div>
     );
@@ -37,7 +41,8 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  todolists: state.todos
+  todolists: state.todos,
+  currentFilter: state.filter
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -45,7 +50,8 @@ const mapDispatchToProps = dispatch => ({
   deleteTodolist: name => dispatch(deleteTodolist(name)),
   toggleTodo: (id, listName) => dispatch(toggleTodo(id, listName)),
   addTodo: (title, listName) => dispatch(addTodo(title, listName)),
-  deleteTodo: (id, listName) => dispatch(deleteTodo(id, listName))
+  deleteTodo: (id, listName) => dispatch(deleteTodo(id, listName)),
+  filterTodos: (currentFilter) => dispatch(filterTodos(currentFilter))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -8,8 +8,12 @@ class TodoList extends Component {
 
   render() {
     let todos;
+    let currentFilter = this.props.currentFilter;
     if (this.props.todolist.todos) {
       todos = this.props.todolist.todos.map(todo => {
+        if(currentFilter=="ALL" || 
+          currentFilter=="COMPLETED" && todo.completed ||
+          currentFilter=="PENDING" && !todo.completed)
         return (
           <Todo key={todo.id} todo={todo} 
           toggleTodo={()=>this.props.toggleTodo(todo.id, this.props.todolist.name)}
