@@ -34,6 +34,8 @@ const todos = (state = [], action) => {
           todos: []
         }
       ]
+    case 'DELETE_TODOLIST':
+      return state.filter(todolist => todolist.name !== action.name);
     default:
       return state;
   }

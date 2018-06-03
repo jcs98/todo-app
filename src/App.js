@@ -3,7 +3,7 @@ import TodoList from './components/TodoList';
 import AddList from './components/AddList';
 
 import { connect } from 'react-redux';
-import { addTodolist, toggleTodo, addTodo } from './actions'
+import { addTodolist, deleteTodolist, toggleTodo, addTodo } from './actions'
 
 import './App.css';
 
@@ -16,7 +16,10 @@ class App extends Component {
     if(this.props.todolists) {
       todolists = this.props.todolists.map(todolist => {
         return (
-          <TodoList key={todolist.name} todolist={todolist} toggleTodo={this.props.toggleTodo} addTodo={this.props.addTodo}/>
+          <TodoList 
+          key={todolist.name} todolist={todolist} 
+          toggleTodo={this.props.toggleTodo} addTodo={this.props.addTodo}
+          deleteTodolist={this.props.deleteTodolist}/>
         );
       });
     }
@@ -38,6 +41,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   addTodolist: name => dispatch(addTodolist(name)),
+  deleteTodolist: name => dispatch(deleteTodolist(name)),
   toggleTodo: (id, listName) => dispatch(toggleTodo(id, listName)),
   addTodo: (title, listName) => dispatch(addTodo(title, listName))
 });

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Todo from './Todo';
 import AddTodo from './AddTodo';
-import { toggleTodo } from '../actions';
 
 
 class TodoList extends Component {
@@ -21,7 +20,7 @@ class TodoList extends Component {
       <div className="TodoList">
         <h3>
           {this.props.todolist.name + "     "}
-          <a href="#" style={{color:'red', textDecoration: 'none'}}>x</a>
+          <a href="#" onClick={()=>this.props.deleteTodolist(this.props.todolist.name)} style={{color:'red', textDecoration: 'none'}}>x</a>
         </h3>
 
         <AddTodo addTodo={(title)=>this.props.addTodo(title, this.props.todolist.name)}/>
