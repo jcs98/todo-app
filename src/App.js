@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TodoList from './components/TodoList';
 import AddList from './components/AddList';
 import TodoFilter from './components/TodoFilter';
+import Home from './components/Home';
 
 import { connect } from 'react-redux';
 import { addTodolist, deleteTodolist, toggleTodo, addTodo, deleteTodo, filterTodos } from './actions'
@@ -31,6 +32,7 @@ class App extends Component {
         <div className="App">
           <h1>ToDo App</h1>
           <AddList addTodolist={this.props.addTodolist}/>
+          <Home todolists={this.props.todolists}/>
           <hr/>
           <TodoFilter filterTodos={this.props.filterTodos}/>
           <hr/>
